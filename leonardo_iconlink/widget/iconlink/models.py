@@ -28,11 +28,11 @@ class PageIconLinkWidget(Widget):
 
     animated = models.BooleanField(default=False, verbose_name=_("Animated"))
 
-    onpage = models.BooleanField(defauld=True, verbose_name=_("Link to the section on this page"))
+    onpage = models.BooleanField(default=True, verbose_name=_("Link to the section on this page"))
 
-    circle = models.BooleanField(defauld=False, verbose_name=_("Circle appearance"))
+    circle = models.BooleanField(default=False, verbose_name=_("Circle appearance"))
 
-    link = models.ForeignKey(Page, blank=True, null=True,
+    link = models.ForeignKey(Page,
                              verbose_name=_("Link"),
                              related_name="context_link", help_text=_(
                                  'Scroll on the page you want.'))
