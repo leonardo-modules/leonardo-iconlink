@@ -13,7 +13,7 @@ class PageIconLinkWidget(IconWidget):
 
     circle = models.BooleanField(default=False, verbose_name=_("Circle appearance"))
 
-    link = models.ForeignKey(Page,
+    link = models.ForeignKey(Page, blank=True, null=True,
                              verbose_name=_("Link"),
                              related_name="context_link", help_text=_(
                                  'Scroll on the page you want.'))
