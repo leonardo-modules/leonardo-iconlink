@@ -6,7 +6,7 @@ default_app_config = 'leonardo_iconlink.Config'
 
 class Default(object):
 
-    optgroup = 'Web'
+    optgroup = 'Link widgets'
 
     apps = [
         'leonardo_iconlink'
