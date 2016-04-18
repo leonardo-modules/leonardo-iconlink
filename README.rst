@@ -3,7 +3,7 @@
 Leonardo IconLink Widget
 ====================
 
-Leonardo ScrollTop allows to scroll up if you are at the bottom of page.
+Leonardo IconLink is extended version of IconWidget
 
 .. contents::
     :local:
