@@ -5,9 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from leonardo.module.web.models import IconWidget
 from leonardo.module.web.models import Page
 
-from .const import ICON_CHOICES, SIZE_CHOICES
-
-
 class PageIconLinkWidget(IconWidget):
 
     animated = models.BooleanField(default=False, verbose_name=_("Animated"))
