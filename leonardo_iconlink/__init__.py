@@ -15,7 +15,7 @@ class Default(object):
     ]
 
     widgets = [
-        'leonardo_iconlink.models.PageIconLinkWidget'
+        'iconlink.models.PageIconLinkWidget'
     ]
 
 
