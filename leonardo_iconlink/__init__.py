@@ -2,9 +2,7 @@
 from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
 
-
 default_app_config = 'leonardo_iconlink.Config'
-
 
 class Default(object):
 
@@ -15,7 +13,7 @@ class Default(object):
     ]
 
     widgets = [
-        'iconlink.models.PageIconLinkWidget'
+        'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
     ]
 
 
