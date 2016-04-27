@@ -13,7 +13,7 @@ Installation
 
 .. code-block:: bash
 
-    pip install -e git+https://github.com/dresl/leonardo-iconlink.git@#egg=leonardo_iconlink
+    pip install -e git+https://github.com/leonardo-modules/leonardo-iconlink.git@#egg=leonardo_iconlink
 
 Load new template to db
 
