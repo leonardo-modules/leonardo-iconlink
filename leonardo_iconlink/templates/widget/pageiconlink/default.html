@@ -1,8 +1,7 @@
 {% extends widget.get_base_template %}
 
 {% block content %}
-{{ widget.text|safe }}
-<a href="{% if widget.onpage %}#{% endif %}{{ widget.link|lower }}" class="btn {% if widget.circle %}btn-circle{% endif %} page-scroll">
+<a href="{% if widget.onpage %}#{{ widget.link|lower }}{% else %}{{ widget.link.get_navigation_url }}{% endif %}" class="btn {% if widget.circle %}btn-circle{% endif %} page-scroll">
     <i class="fa fa-{{ widget.icon }}{% if widget.spin %} fa-spin{% endif %}{% if widget.size != None %} fa-{{ widget.size }}{% endif %} {% if widget.animated %}animated{% endif %}"></i> {{ widget.text }}
 </a>
 {% endblock %}

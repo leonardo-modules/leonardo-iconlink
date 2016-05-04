@@ -12,6 +12,10 @@ class Default(object):
         'leonardo_iconlink'
     ]
 
+    css_files = [
+    	'iconlink/default.css'
+    ]
+
     widgets = [
         'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
     ]
