@@ -5,6 +5,16 @@ from django.utils.translation import ugettext_lazy as _
 from leonardo.module.web.models import IconWidget
 from leonardo.module.web.models import Page
 
+STYLE_CHOICES = (
+    ('default', _('button default')),
+    ('primary', _('button primary')),
+    ('success', _('button success')),
+    ('info', _('button info')),
+    ('warning', _('button warning')),
+    ('danger', _('button danger')),
+    ('link', _('button link')),
+)
+
 class PageIconLinkWidget(IconWidget):
 
     animated = models.BooleanField(default=False, verbose_name=_("Animated"))
@@ -12,6 +22,12 @@ class PageIconLinkWidget(IconWidget):
     onpage = models.BooleanField(default=True, verbose_name=_("Link to the section on this page"))
 
     circle = models.BooleanField(default=False, verbose_name=_("Circle appearance"))
+
+    style = models.CharField(verbose_name=_("Style of button"), max_length=255, blank=True, choices=STYLE_CHOICES)
+
+    text_button = models.CharField(verbose_name=_("Text in button"), max_length=255, blank=True)
+
+    description = models.CharField(verbose_name=_("Description"), max_length=255, blank=True)
 
     link = models.ForeignKey(Page, blank=True, null=True,
                              verbose_name=_("Link"),
