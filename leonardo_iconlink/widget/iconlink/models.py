@@ -15,24 +15,26 @@ STYLE_CHOICES = (
     ('link', _('button link')),
 )
 
+
 class PageIconLinkWidget(IconWidget):
 
     animated = models.BooleanField(default=False, verbose_name=_("Animated"))
-
-    onpage = models.BooleanField(default=True, verbose_name=_("Link to the section on this page"))
-
-    circle = models.BooleanField(default=False, verbose_name=_("Circle appearance"))
-
-    style = models.CharField(verbose_name=_("Style of button"), max_length=255, blank=True, choices=STYLE_CHOICES)
-
-    text_button = models.CharField(verbose_name=_("Text in button"), max_length=255, blank=True)
-
-    description = models.CharField(verbose_name=_("Description"), max_length=255, blank=True)
-
+    onpage = models.BooleanField(
+        default=True, verbose_name=_("Link to the section on this page"))
+    circle = models.BooleanField(
+        default=False, verbose_name=_("Circle appearance"))
+    style = models.CharField(verbose_name=_(
+        "Style of button"), max_length=255, blank=True, choices=STYLE_CHOICES)
+    text_button = models.CharField(
+        verbose_name=_("Text in button"), max_length=255, blank=True)
+    description = models.CharField(
+        verbose_name=_("Description"), max_length=255, blank=True)
     link = models.ForeignKey(Page, blank=True, null=True,
                              verbose_name=_("Link"),
                              related_name="context_link", help_text=_(
                                  'Scroll on the page you want.'))
+    customlink = models.CharField(
+        verbose_name=_("Custom link"), max_length=255, blank=True)
 
     def get_link(self, request=None):
 

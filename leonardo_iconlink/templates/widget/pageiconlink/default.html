@@ -2,7 +2,17 @@
 
 {% block content %}
 {% if widget.description %}<h5>{{ widget.description }}</h5>{% endif %}
-<a href="{% if widget.onpage %}#{{ widget.link|lower }}{% else %}{{ widget.link.get_navigation_url }}{% endif %}" class="btn {% if widget.circle %}btn-circle{% endif %} {% if widget.style %}btn-{{ widget.style }}{% endif %} page-scroll">
+<a href="{% if widget.onpage %}#{% if widget.customlink %}{{ widget.customlink }}{% else %}{{ widget.link|lower }}{% endif %}{% else %}{{ widget.link.get_navigation_url }}{% endif %}" class="btn {% if widget.circle %}btn-circle{% endif %} {% if widget.style %}btn-{{ widget.style }}{% endif %} page-scroll">
     {% if widget.icon %}<i class="fa fa-{{ widget.icon }}{% if widget.spin %} fa-spin{% endif %}{% if widget.size != None %} fa-{{ widget.size }}{% endif %} {% if widget.animated %}animated{% endif %}"></i>{% endif %} {{ widget.text_button }}
 </a>
+<script type="text/javascript">
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$('a.page-scroll').bind('click', function(event) {
+    var $anchor = $(this);
+    $('html, body').stop().animate({
+        scrollTop: ($($anchor.attr('href').replace("/", "")).offset().top - 1)
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+});
+</script>
 {% endblock %}
