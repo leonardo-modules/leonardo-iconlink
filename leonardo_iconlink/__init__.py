@@ -2,23 +2,29 @@
 from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
 
-default_app_config = 'leonardo_iconlink.Config'
+try:
+    from local_settings import APPS
+except ImportError:
+    pass
+
+    default_app_config = 'leonardo_iconlink.Config'
 
 class Default(object):
 
-    optgroup = 'Link widgets'
+    if 'leonardo_iconlink' in APPS:
+        optgroup = 'Link widgets'
 
-    apps = [
-        'leonardo_iconlink'
-    ]
+        apps = [
+            'leonardo_iconlink'
+        ]
 
-    css_files = [
-    	'iconlink/default.css'
-    ]
+        css_files = [
+            'iconlink/default.css'
+        ]
 
-    widgets = [
-        'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
-    ]
+        widgets = [
+            'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
+        ]
 
 
 class Config(AppConfig, Default):
