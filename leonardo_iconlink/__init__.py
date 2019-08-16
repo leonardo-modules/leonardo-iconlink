@@ -1,34 +1,29 @@
 
 from django.apps import AppConfig
-from django.utils.translation import ugettext_lazy as _
 
 try:
     from local_settings import APPS
 except ImportError:
     pass
 
-    default_app_config = 'leonardo_iconlink.Config'
+default_app_config = 'leonardo_iconlink.Config'
 
-class Default(object):
+if 'leonardo_iconlink' in APPS:
+    LEONARDO_APPS = [
+        'leonardo_iconlink'
+    ]
 
-    if 'leonardo_iconlink' in APPS:
-        optgroup = 'Link widgets'
+    LEONARDO_OPTGROUP = 'Link widgets'
 
-        apps = [
-            'leonardo_iconlink'
-        ]
+    LEONARDO_WIDGETS = [
+        'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
+    ]
 
-        css_files = [
-            'iconlink/default.css'
-        ]
-
-        widgets = [
-            'leonardo_iconlink.widget.iconlink.models.PageIconLinkWidget'
-        ]
+    LEONARDO_CSS_FILES = [
+        'iconlink/default.css'
+    ]
 
 
-class Config(AppConfig, Default):
+class Config(AppConfig):
     name = 'leonardo_iconlink'
-    verbose_name = _("IconLink")
-
-default = Default()
+    verbose_name = "IconLink"
