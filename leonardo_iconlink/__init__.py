@@ -25,5 +25,5 @@ if 'leonardo_iconlink' in APPS:
 
 
 class Config(AppConfig):
-    name = 'leonardo IconLink'
+    name = 'leonardo_iconlink'
     verbose_name = "IconLink"
